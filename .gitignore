@@ -1,0 +1,35 @@
+# Build output
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+
+# Local development settings and secrets
+*.env
+.env.*
+!*.env.example
+**/appsettings.Local.json
+**/appsettings.*.Local.json
+
+# SQL Server / local database files
+*.mdf
+*.ldf
+*.ndf
+
+# OS files
+.DS_Store
+Thumbs.db

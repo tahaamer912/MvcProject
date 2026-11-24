@@ -1,0 +1,46 @@
+﻿@using MVCProject.Entities
+
+@{
+    string pageTitle = "Route academy";
+    int age = 25;
+    List<int> numbers = [ 1, 2, 3, 4, 5];
+}
+
+<!DOCTYPE html> 
+<html>  
+     <head>
+           <title>@pageTitle</title>     
+     </head>
+        <body>
+            <h1>Welcome to route academy</h1>
+            <h2>@pageTitle</h2>
+            <p>Age: @age</p>
+            <p>@(age+10)</p>
+
+            @if(age>=18)
+             {  
+              <p>You are an adult</p>
+            }
+            else
+            {
+                <p>You are under 18</p>
+             } 
+               <ul>
+                @foreach (var number in numbers)
+                {
+                    <li>@number</li>
+                }
+                    </ul> 
+          <a asp-controller="Home" asp-action="Index">Home</a>
+
+    <environment include="Development">
+        <p>Running in development</p>
+    </environment>
+
+    <environment include="Development">
+        <p>Running in production</p>
+    </environment>
+
+
+ </body>
+</html>
