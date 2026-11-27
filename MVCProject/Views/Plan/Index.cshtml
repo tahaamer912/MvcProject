@@ -1,11 +1,24 @@
-﻿
-@using MVCProject.Entities
-@model IEnumerable<Plan>
+﻿@using MVCProject.ViewModels
+@model IEnumerable<PlanViewModel> 
 @{
 
     ViewData["Title"] = "plans";
 }
+@if (TempData["ErrorMessage"] is not null || TempData["SuccessMessage"] is not null)
+{
+    <div class="toasts" role="status" aria-live="polite">
 
+        @if (TempData["SuccessMessage"] is not null)
+        {
+            <div class="toast-r"><i class="bi bi-check-circle-fill"></i><span>@TempData["SuccessMessage"]</span><button type="button" aria-label="Close">&times;</button></div>
+        }
+        @if (TempData["ErrorMessage"] is not null)
+        {
+            <div class="toast-r error"><i class="bi bi-exclamation-circle-fill"></i><span>@TempData["ErrorMessage"]</span><button type="button" aria-label="Close">&times;</button></div>
+        }
+        
+    </div>            
+}
 
 
                 <div class="page-head">

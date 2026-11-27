@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;    
+using MVCProject.Contexts;
+using MVCProject.Repositories.Classes;
+using MVCProject.Repositories.Interfaces;
+using MVCProject.ViewModels;
+
 namespace MVCProject
 {
     public class Program
@@ -8,6 +14,17 @@ namespace MVCProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            builder.Services.AddDbContext<GymDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            builder.Services.AddScoped<IPlanRepositoty, PlanRepository>();
+            builder.Services.AddScoped<IMembershipRepository, MembershipRepository>();  
+
+
 
             var app = builder.Build();
 
